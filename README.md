@@ -48,7 +48,8 @@ Once the Docker container is started, you can publish your RTMP stream to `rtmp:
 If interested, you can also build the Docker image on your own by running the following commands:
 
 ```bash
-$ cd /path/to/the/project
+$ git clone https://github.com/ziqin/LiveStudio-docker.git
+$ cd LiveStudio-docker
 
 # Download the source codes of Nginx and Nginx-RTMP-module
 $ curl -o nginx-rtmp-module-proj-docker.tar.gz https://github.com/ziqin/nginx-rtmp-module/archive/proj-docker.tar.gz
