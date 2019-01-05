@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Live Studio · CS305 Project</title>
+    <link rel="stylesheet" href="/static/css/DPlayer.min.css">
+    <link rel="stylesheet" href="/static/css/bulma.min.css">
+    <style>
+      .panel-block:hover {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">Live Studio</h1>
+          <p class="subtitle">CS305 Project · DASH-based Live Streaming System</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="columns">
+        <div class="column is-three-quarters">
+          <div class="card">
+            <div class="card-image">
+              <div id="dplayer"></div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <nav class="panel" id="channels-panel">
+            <p class="panel-heading">Live Channels</p>
+            <p class="panel-block" v-for="channel in channels" v-on:click="switchChannel(channel)">
+              {{ channel.name }}
+            </p>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p><strong>Live Studio</strong> by Henry, Hong, and Jeeken from CSE@SUSTech.</p>  
+      </div>
+    </footer>
+
+    <script src="/static/js/vue.min.js"></script>
+    <script src="/static/js/dash.all.min.js"></script>
+    <script src="/static/js/DPlayer.min.js"></script>
+    <script src="/static/js/cs305.js"></script>
+  </body>
+</html>
