@@ -12,26 +12,26 @@ This repository contains the source code and configuration files we wrote for Li
 
 ## Deployment
 
-To facilitate the system deployment process, which contains numerous steps, we have packed this project into a **Docker image** so that you can easily run a container copy on your computer. (You can read the Dockerfile and accompanied scripts if you are intested in the detailed setup steps.)
+To facilitate the system deployment process, which contains numerous steps, we have packed this project into a **Docker image** so that you can easily run a container copy on your computer. (You can read the Dockerfile and accompanied scripts if you are interested in the detailed setup steps.)
 
 ### Prerequisites
 
 - A Linux system
 - [Docker](https://www.docker.com/), a popular containerization platform for software deployment
 
-If you have not installed Docker on your Linux system, you can install it with the equipped package manager. You may need to enable the docker service after the installation. Please refer to the corresponding document for the distribution you use.
+If you have not installed Docker on your Linux system, you can install it with the equipped package manager. You may need to enable the docker daemon service after the installation. Please refer to the corresponding document for the linux distribution you use.
 
-### Download the docker image
+### Download the Docker image
 
 You can download a packaged Docker image from the [Releases](https://github.com/ziqin/LIveStudio-docker/releases) page.
 
-### Decompress and import the docker image
+### Decompress and import the Docker image
 
 ```bash
-$ bzcat cs305-dash.docker_image.tar.bz2 | docker load
+$ bzcat cs305-dash.docker.tar.bz2 | docker load
 ```
 
-You may need the root privilege to run docker-related commands, or you can consider [adding the current user to the `docker` group](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user).
+You may need the root privilege to run Docker-related commands, or you can consider [adding the current user to the `docker` group](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user).
 
 ### Run a Docker container
 
@@ -39,9 +39,9 @@ You may need the root privilege to run docker-related commands, or you can consi
 $ docker run -p 8080:80 -p 1935:1935 jeeken/cs305-dash
 ```
 
-The Docker container exposes port 80 for HTTP web service and port 1935 for RTMP stream publishment. Running the above command would map the exposed container port 80 to port 8080 of the host system, and port 1935 would be also mapped in an analogous manner.
+The Docker container exposes port 80 for HTTP web service and port 1935 for RTMP stream publishing. Running the above command would map the exposed container port 80 to port 8080 of the host system, and port 1935 would be also mapped in an analogous manner.
 
-Once the Docker container is started, you can publish your RTMP stream to `rtmp://address-of-your-host:1935/pub` with a RTMP-compatible client (e.g. [OBS Studio](https://obsproject.com/), [OvenStreamEncoder](https://play.google.com/store/apps/details?id=com.airensoft.ovenstreamencoder.camera)) and visit <http://address-of-your-host:8080> with your browser. (Don't forget to replace `address-of-your-host` with the actual IP or domain.) The live broadcast may have a delay of several seconds.
+Once the Docker container is started, you can publish your RTMP stream to `rtmp://address-of-your-host:1935/pub` with a RTMP-compatible client (e.g. [OBS Studio](https://obsproject.com/), [OvenStreamEncoder](https://play.google.com/store/apps/details?id=com.airensoft.ovenstreamencoder.camera)) and visit <http://address-of-your-host:8080> with your browser. (Don't forget to replace `address-of-your-host` with the actual IP or domain name.) The live broadcast may have a delay of several seconds.
 
 ## Build a Docker image on your own
 
