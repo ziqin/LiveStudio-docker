@@ -28,7 +28,7 @@ You can download a packaged Docker image from the [Releases](https://github.com/
 ### Decompress and import the Docker image
 
 ```bash
-$ bzcat cs305-dash.docker.tar.bz2 | docker load
+$ bzcat cs305-dash.docker.bz2 | docker load
 ```
 
 You may need the root privilege to run Docker-related commands, or you can consider [adding the current user to the `docker` group](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user).
@@ -59,5 +59,5 @@ curl -o nginx-1.14.2.tar.gz http://nginx.org/download/nginx-1.14.2.tar.gz
 docker build -t jeeken/cs305-docker .
 
 # Export a compressed docker image
-docker save jeeken/cs305-docker | bzip2 > cs305-dash.docker.tar.bz2
+docker save jeeken/cs305-docker | bzip2 > cs305-dash.docker.bz2
 ```
